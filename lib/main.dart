@@ -13,11 +13,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
+        // theme: ThemeData.dark(),
         theme: ThemeData(
-          brightness: Brightness.dark,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
+            brightness: Brightness.dark,
+            useMaterial3: true,
+            fontFamily: "Poppins"),
         home: NotesView());
   }
 }
