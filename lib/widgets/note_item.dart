@@ -19,24 +19,28 @@ class NoteItem extends StatelessWidget {
             ListTile(
               title: const Text(
                 "Flutter tips",
-                style: TextStyle(fontSize: 24, color: Colors.black),
+                style: TextStyle(fontSize: 20, color: Colors.black),
               ),
               subtitle: Padding(
-                padding: const EdgeInsets.only(top: 16,),
+                padding: const EdgeInsets.only(
+                  top: 16,
+                ),
                 child: Text(
                   "Build your career with tharwat samy",
                   style: TextStyle(
-                      fontSize: 18, color: Colors.black.withOpacity(0.4)),
+                      fontSize: 16, color: Colors.black.withOpacity(0.4)),
                 ),
               ),
               trailing: Padding(
-                padding: const EdgeInsets.only(bottom:100,),
+                padding: const EdgeInsets.only(
+                  bottom: 100,
+                ),
                 child: IconButton(
-                  padding: EdgeInsets.zero,
+                    padding: EdgeInsets.zero,
                     onPressed: () {},
                     icon: const Icon(
                       FontAwesomeIcons.trash,
-                      size: 26,
+                      size: 22,
                       color: Colors.black,
                     )),
               ),
@@ -46,7 +50,7 @@ class NoteItem extends StatelessWidget {
               child: Text(
                 'May21,2022',
                 style: TextStyle(
-                    fontSize: 16, color: Colors.black.withOpacity(0.4)),
+                    fontSize: 14, color: Colors.black.withOpacity(0.4)),
               ),
             )
           ],
