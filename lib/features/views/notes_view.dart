@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import '../core/constants.dart';
+import '../../core/constants.dart';
 import '../widgets/add_notes_bottom_sheet.dart';
 import '../widgets/notes_view_body.dart';
 
