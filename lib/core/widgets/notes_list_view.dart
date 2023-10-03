@@ -18,7 +18,7 @@ class NotesListView extends StatelessWidget {
                 onTap: (){
                   
                   Navigator.push(context,MaterialPageRoute(builder: (context){
-                    return EditNotesView();
+                    return const EditNotesView();
                   }));
                 },
                 child: const NoteItem());
