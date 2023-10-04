@@ -11,14 +11,15 @@ class EditNotesViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.symmetric(horizontal: 24),
-
       child: Column(
-
         children: [
           SizedBox(
             height: 10,
           ),
-          CustomAppBar(title: 'Edit Notes', icon: FontAwesomeIcons.check,),
+          CustomAppBar(
+            title: 'Edit Notes',
+            icon: FontAwesomeIcons.check,
+          ),
           SizedBox(
             height: 26,
           ),
@@ -26,9 +27,10 @@ class EditNotesViewBody extends StatelessWidget {
           SizedBox(
             height: 16,
           ),
-
-          CustomTextField(hintText: 'content',maxLines: 5,),
-
+          CustomTextField(
+            hintText: 'content',
+            maxLines: 5,
+          ),
         ],
       ),
     );

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:note_app/cubit/notes_cubit/notes_cubit.dart';
+import 'package:note_app/models/notes_model.dart';
 
 class NoteItem extends StatelessWidget {
-  const NoteItem({Key? key}) : super(key: key);
-
+  const NoteItem({Key? key, required this.notesModel}) : super(key: key);
+  final NotesModel notesModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -12,43 +14,41 @@ class NoteItem extends StatelessWidget {
         padding: const EdgeInsets.only(top: 24, bottom: 24, left: 16),
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(16),
-            color: const Color(0XFFffcc78)),
+            color: Color(notesModel.color)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             ListTile(
-              title: const Text(
-                "Flutter tips",
-                style: TextStyle(fontSize: 20, color: Colors.black),
+              title: Text(
+                notesModel.title,
+                style: const TextStyle(fontSize: 20, color: Colors.black),
               ),
               subtitle: Padding(
                 padding: const EdgeInsets.only(
                   top: 16,
                 ),
                 child: Text(
-                  "Build your career with tharwat samy",
+                  notesModel.subtitle,
                   style: TextStyle(
                       fontSize: 16, color: Colors.black.withOpacity(0.4)),
                 ),
               ),
-              trailing: Padding(
-                padding: const EdgeInsets.only(
-                  bottom: 100,
-                ),
-                child: IconButton(
-                    padding: EdgeInsets.zero,
-                    onPressed: () {},
-                    icon: const Icon(
-                      FontAwesomeIcons.trash,
-                      size: 22,
-                      color: Colors.black,
-                    )),
-              ),
+              trailing: IconButton(
+                  padding: EdgeInsets.zero,
+                  onPressed: () {
+                    notesModel.delete();
+                    NotesCubit.get(context).getAllNotes();
+                  },
+                  icon: const Icon(
+                    FontAwesomeIcons.trash,
+                    size: 22,
+                    color: Colors.black,
+                  )),
             ),
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Text(
-                'May21,2022',
+                notesModel.date,
                 style: TextStyle(
                     fontSize: 14, color: Colors.black.withOpacity(0.4)),
               ),
