@@ -7,6 +7,7 @@ import 'package:note_app/models/notes_model.dart';
 import '../../cubit/add_note_cubit/add_note_states.dart';
 import 'custom_button.dart';
 import 'custom_text_field.dart';
+import 'item_color_listview.dart';
 
 class AddNotesForm extends StatefulWidget {
   const AddNotesForm({super.key});
@@ -46,30 +47,18 @@ class _AddNotesFormState extends State<AddNotesForm> {
             maxLines: 5,
           ),
           const SizedBox(
-            height: 55,
+            height: 32,
+          ),
+          const ItemColorListView(),
+          const SizedBox(
+            height: 32,
           ),
           BlocBuilder<AddNoteCubit, AddNoteStates>(
             builder: (context, state) {
               return CutomButton(
                 isLoading: state is AddNoteLoadingState ? true : false,
                 onTab: () {
-                  if (formKey.currentState!.validate()) {
-                    formKey.currentState!.save();
-                    var currentDate = DateTime.now();
-                    // you can write your custom format
-                    //  String formattedCurrentDate = DateFormat('dd-mm-yyyy').format(currentDate);
-                    String formattedCurrentDate =
-                        DateFormat.yMd().format(currentDate);
-
-                    NotesModel notesModel = NotesModel(
-                        title: title!,
-                        subtitle: subtitle!,
-                        date: formattedCurrentDate,
-                        color: Colors.deepPurple.value);
-                    BlocProvider.of<AddNoteCubit>(context).addNote(notesModel);
-                  } else {
-                    autovalidateMode = AutovalidateMode.always;
-                  }
+                  addNote();
                 },
               );
             },
@@ -80,5 +69,24 @@ class _AddNotesFormState extends State<AddNotesForm> {
         ],
       ),
     );
+  }
+
+  addNote() {
+    if (formKey.currentState!.validate()) {
+      formKey.currentState!.save();
+      var currentDate = DateTime.now();
+      // you can write your custom format
+      //  String formattedCurrentDate = DateFormat('dd-mm-yyyy').format(currentDate);
+      String formattedCurrentDate = DateFormat.yMd().format(currentDate);
+
+      NotesModel notesModel = NotesModel(
+          title: title!,
+          subtitle: subtitle!,
+          date: formattedCurrentDate,
+          color: Colors.deepPurple.value);
+      BlocProvider.of<AddNoteCubit>(context).addNote(notesModel);
+    } else {
+      autovalidateMode = AutovalidateMode.always;
+    }
   }
 }

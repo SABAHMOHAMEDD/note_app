@@ -31,6 +31,7 @@ class NotesView extends StatelessWidget {
               },
               child: const Icon(
                 FontAwesomeIcons.add,
+                size: 18,
                 color: Colors.black,
               ),
             ),

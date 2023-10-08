@@ -4,6 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:note_app/cubit/notes_cubit/notes_cubit.dart';
 import 'package:note_app/models/notes_model.dart';
 import 'package:note_app/views/notes_view.dart';
+import 'package:note_app/views/splash_screen.dart';
 
 import 'core/bloc_observer.dart';
 import 'core/constants.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.dark,
               useMaterial3: true,
               fontFamily: "Poppins"),
-          home: const NotesView()),
+          home:  SplashScreen()),
     );
   }
 }

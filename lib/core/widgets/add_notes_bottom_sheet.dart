@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/cubit/add_note_cubit/add_note_cubit.dart';
@@ -24,7 +25,9 @@ class AddNotesBottomSheet extends StatelessWidget {
               Navigator.pop(context);
             }
             if (state is AddNoteFailureState) {
-              print(state.errorMsg);
+              if (kDebugMode) {
+                print(state.errorMsg);
+              }
             }
           },
           builder: (context, state) {
