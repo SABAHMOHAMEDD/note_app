@@ -25,9 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context)=>NotesCubit())
-      ],
+      providers: [BlocProvider(create: (context) => NotesCubit())],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           // theme: ThemeData.dark(),
@@ -35,7 +33,7 @@ class MyApp extends StatelessWidget {
               brightness: Brightness.dark,
               useMaterial3: true,
               fontFamily: "Poppins"),
-          home:  SplashScreen()),
+          home: SplashScreen()),
     );
   }
 }
